@@ -5,7 +5,7 @@ MAINTAINER godleon@gmail.com
 RUN subscription-manager register --username ${REDHAT_USER_NAME} --password ${REDHAT_USER_PWD}
 RUN subscription-manager attach --pool=${REDHAT_REG_POOLID}
 RUN subscription-manager repos --disable=*
-RUN subscription-manager repos --${REDHAT_REPO_ENABLED}
+RUN subscription-manager repos --enable=rhel-7-server-extras-rpms --enable=rhel-7-server-rpms --enable=rhel-7-server-extras-rpms --enable=rhel-7-server-rh-common-rpms --enable=rhel-ha-for-rhel-7-server-rpms --enable=rhel-7-server-openstack-10-rpms --enable=rhel-server-rhscl-7-eus-rpms
 
 # 安裝軟體
 #yum -y install git git jq bc wget openstack-tempest python-openstackclient openstack-rally

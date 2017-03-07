@@ -11,7 +11,7 @@ jobs:
         REDHAT_USER_NAME: {{REDHAT_USER_NAME}}
         REDHAT_USER_PWD: {{REDHAT_USER_PWD}}
         REDHAT_REG_POOLID: {{REDHAT_REG_POOLID}}
-        REDHAT_REPO_ENABLED: {{REDHAT_REPO_ENABLED}}
+        #REDHAT_REPO_ENABLED: {{REDHAT_REPO_ENABLED}}
 
       build: git_osp/docker_images/rhel7_test_suite
 
