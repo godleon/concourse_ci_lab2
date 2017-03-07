@@ -1,0 +1,1099 @@
+executing build 1238
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 27260    0 27260    0     0  10.6M      0 --:--:-- --:--:-- --:--:-- 12.9M
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   156    0   156    0     0  70812      0 --:--:-- --:--:-- --:--:-- 78000
+100 17107    0 17107    0     0   247k      0 --:--:-- --:--:-- --:--:--  249k
+100  6087    0  6087    0     0  66825      0 --:--:-- --:--:-- --:--:-- 67633
+[1minitializing[0m
+[1mrunning sh -exc bash git_osp/scripts/scenario_test.sh[0m
++ bash git_osp/scripts/scenario_test.sh
+++ pwd
++ g_ENTRY_PATH=/tmp/build/e55deab7
+++ cat git_semver/version
++ g_RESOURCE_VER=0.2.199
++ env
+USER=rally
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+PWD=/tmp/build/e55deab7
+SHLVL=1
+HOME=/home/rally
+_=/usr/bin/env
++ sudo apt-get update
++ sudo apt-get -y install git jq
+debconf: delaying package configuration, since apt-utils is not installed
++ source git_osp/overcloudrc
+++ export OS_NO_CACHE=True
+++ OS_NO_CACHE=True
+++ export OS_CLOUDNAME=overcloud
+++ OS_CLOUDNAME=overcloud
+++ export OS_AUTH_URL=http://10.102.21.103:5000/v2.0
+++ OS_AUTH_URL=http://10.102.21.103:5000/v2.0
+++ export NOVA_VERSION=1.1
+++ NOVA_VERSION=1.1
+++ export COMPUTE_API_VERSION=1.1
+++ COMPUTE_API_VERSION=1.1
+++ export OS_USERNAME=admin
+++ OS_USERNAME=admin
+++ export no_proxy=,10.102.21.103,10.102.22.64
+++ no_proxy=,10.102.21.103,10.102.22.64
+++ export OS_PASSWORD=uXNe79mBYXYuFaU32sdMWeF4a
+++ OS_PASSWORD=uXNe79mBYXYuFaU32sdMWeF4a
+++ export 'PYTHONWARNINGS=ignore:Certificate has no, ignore:A true SSLContext object is not available'
+++ PYTHONWARNINGS='ignore:Certificate has no, ignore:A true SSLContext object is not available'
+++ export OS_TENANT_NAME=admin
+++ OS_TENANT_NAME=admin
++ cd /home/rally
++ cp -r /tmp/build/e55deab7/git_osp /tmp/build/e55deab7/git_semver /tmp/build/e55deab7/out_release_ghpages /tmp/build/e55deab7/rally_tests /tmp/build/e55deab7/release_ghpages ./
++ git clone release_ghpages out_release_ghpages
+Cloning into 'out_release_ghpages'...
+warning: You appear to have cloned an empty repository.
+done.
++ mkdir out_release_ghpages/0.2.199
++ echo '{}'
+++ find rally_tests/ -type f -name '*.json'
++ for f in '$(find rally_tests/ -type f -name '\''*.json'\'')'
++ jq -s '.[0] * .[1]' rally_tests/nova/boot-and-delete.json /tmp/tmp_content.json
++ cp /tmp/scenatio_test.json /tmp/tmp_content.json
++ for f in '$(find rally_tests/ -type f -name '\''*.json'\'')'
++ jq -s '.[0] * .[1]' rally_tests/nova/boot-and-associate-floating-ip.json /tmp/tmp_content.json
++ cp /tmp/scenatio_test.json /tmp/tmp_content.json
++ for f in '$(find rally_tests/ -type f -name '\''*.json'\'')'
++ jq -s '.[0] * .[1]' rally_tests/authenticate/keystone.json /tmp/tmp_content.json
++ cp /tmp/scenatio_test.json /tmp/tmp_content.json
++ rally-manage db recreate
++ rally deployment create --fromenv --name=existing
+2017-03-02 09:01:38.547 217 INFO rally.deployment.engine [-] Deployment f478cc47-6fd5-452d-aca7-7881883078af | Starting:  OpenStack cloud deployment.
+2017-03-02 09:01:38.565 217 INFO rally.deployment.engine [-] Deployment f478cc47-6fd5-452d-aca7-7881883078af | Completed: OpenStack cloud deployment.
++--------------------------------------+----------------------------+----------+------------------+--------+
+| uuid                                 | created_at                 | name     | status           | active |
++--------------------------------------+----------------------------+----------+------------------+--------+
+| f478cc47-6fd5-452d-aca7-7881883078af | 2017-03-02 09:01:38.537950 | existing | deploy->finished |        |
++--------------------------------------+----------------------------+----------+------------------+--------+
+Using deployment: f478cc47-6fd5-452d-aca7-7881883078af
+~/.rally/openrc was updated
+
+HINTS:
+
+* To use standard OpenStack clients, set up your env by running:
+	source ~/.rally/openrc
+  OpenStack clients are now configured, e.g run:
+	openstack image list
++ rally deployment check
+keystone endpoints are valid and following services are available:
++-------------+----------------+-----------+
+| services    | type           | status    |
++-------------+----------------+-----------+
+| __unknown__ | alarming       | Available |
+| __unknown__ | volumev2       | Available |
+| __unknown__ | volumev3       | Available |
+| ceilometer  | metering       | Available |
+| cinder      | volume         | Available |
+| cloud       | cloudformation | Available |
+| glance      | image          | Available |
+| gnocchi     | metric         | Available |
+| heat        | orchestration  | Available |
+| keystone    | identity       | Available |
+| neutron     | network        | Available |
+| nova        | compute        | Available |
+| swift       | object-store   | Available |
++-------------+----------------+-----------+
+NOTE: '__unknown__' service name means that Keystone service catalog doesn't return name for this service and Rally can not identify service by its type. BUT you still can use such services with api_versions context, specifying type of service (execute `rally plugin show api_versions` for more details).
++ rally task start /tmp/scenatio_test.json
+Running Rally version 0.8.2~dev85
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+  "Authenticate.keystone": [
+    {
+      "context": {
+        "quotas": {
+          "nova": {
+            "security_groups": -1,
+            "server_groups": -1,
+            "metadata_items": -1,
+            "security_group_rules": -1,
+            "ram": -1,
+            "floating_ips": -1,
+            "injected_file_path_bytes": -1,
+            "instances": -1,
+            "key_pairs": -1,
+            "injected_files": -1,
+            "fixed_ips": -1,
+            "cores": -1,
+            "server_group_members": -1,
+            "injected_file_content_bytes": -1
+          },
+          "cinder": {
+            "snapshots": -1,
+            "volumes": -1,
+            "gigabytes": -1
+          },
+          "neutron": {
+            "router": -1,
+            "security_group_rule": -1,
+            "network": -1,
+            "port": -1,
+            "floatingip": -1,
+            "security_group": -1,
+            "subnet": -1
+          }
+        },
+        "users": {
+          "users_per_tenant": 50,
+          "tenants": 3
+        }
+      },
+      "sla": {
+        "max_avg_duration": 3,
+        "failure_rate": {
+          "max": 0
+        },
+        "max_seconds_per_iteration": 5
+      },
+      "runner": {
+        "times": 100,
+        "type": "constant",
+        "concurrency": 5
+      }
+    }
+  ],
+  "NovaServers.boot_and_associate_floating_ip": [
+    {
+      "args": {
+        "image": {
+          "name": "^cirros.*-disk$"
+        },
+        "flavor": {
+          "name": "m1.tiny"
+        },
+        "auto_assign_nic": true
+      },
+      "context": {
+        "quotas": {
+          "nova": {
+            "security_groups": -1,
+            "server_groups": -1,
+            "metadata_items": -1,
+            "security_group_rules": -1,
+            "ram": -1,
+            "floating_ips": -1,
+            "injected_file_path_bytes": -1,
+            "instances": -1,
+            "key_pairs": -1,
+            "injected_files": -1,
+            "fixed_ips": -1,
+            "cores": -1,
+            "server_group_members": -1,
+            "injected_file_content_bytes": -1
+          },
+          "cinder": {
+            "snapshots": -1,
+            "volumes": -1,
+            "gigabytes": -1
+          },
+          "neutron": {
+            "router": -1,
+            "security_group_rule": -1,
+            "network": -1,
+            "port": -1,
+            "floatingip": -1,
+            "security_group": -1,
+            "subnet": -1
+          }
+        },
+        "users": {
+          "users_per_tenant": 1,
+          "tenants": 1
+        },
+        "network": {}
+      },
+      "sla": {
+        "max_avg_duration": 45,
+        "failure_rate": {
+          "max": 0
+        },
+        "max_seconds_per_iteration": 60
+      },
+      "runner": {
+        "type": "rps",
+        "times": 1,
+        "max_cpu_count": 1,
+        "rps": 1
+      }
+    }
+  ],
+  "NovaServers.boot_and_delete_server": [
+    {
+      "args": {
+        "image": {
+          "name": "^cirros.*-disk$"
+        },
+        "min_sleep": 10,
+        "max_sleep": 30,
+        "flavor": {
+          "name": "m1.tiny"
+        },
+        "auto_assign_nic": true
+      },
+      "context": {
+        "quotas": {
+          "nova": {
+            "security_groups": -1,
+            "server_groups": -1,
+            "metadata_items": -1,
+            "security_group_rules": -1,
+            "ram": -1,
+            "floating_ips": -1,
+            "injected_file_path_bytes": -1,
+            "instances": -1,
+            "key_pairs": -1,
+            "injected_files": -1,
+            "fixed_ips": -1,
+            "cores": -1,
+            "server_group_members": -1,
+            "injected_file_content_bytes": -1
+          },
+          "cinder": {
+            "snapshots": -1,
+            "volumes": -1,
+            "gigabytes": -1
+          },
+          "neutron": {
+            "router": -1,
+            "security_group_rule": -1,
+            "network": -1,
+            "port": -1,
+            "floatingip": -1,
+            "security_group": -1,
+            "subnet": -1
+          }
+        },
+        "users": {
+          "users_per_tenant": 2,
+          "tenants": 3
+        },
+        "network": {
+          "start_cidr": "10.2.0.0/24",
+          "networks_per_tenant": 2
+        }
+      },
+      "sla": {
+        "max_avg_duration": 30,
+        "failure_rate": {
+          "max": 0
+        },
+        "max_seconds_per_iteration": 45
+      },
+      "runner": {
+        "times": 10,
+        "type": "rps",
+        "max_cpu_count": 1,
+        "rps": 1
+      }
+    }
+  ]
+}
+
+Task syntax is correct :)
+2017-03-02 09:01:40.797 229 INFO rally.task.engine [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  Task validation.
+2017-03-02 09:01:40.808 229 INFO rally.task.engine [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  Task validation of scenarios names.
+2017-03-02 09:01:40.810 229 INFO rally.task.engine [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: Task validation of scenarios names.
+2017-03-02 09:01:40.810 229 INFO rally.task.engine [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  Task validation of syntax.
+2017-03-02 09:01:40.839 229 INFO rally.task.engine [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: Task validation of syntax.
+2017-03-02 09:01:40.839 229 INFO rally.task.engine [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  Task validation of semantic.
+2017-03-02 09:01:40.839 229 INFO rally.task.engine [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  Task validation check cloud.
+2017-03-02 09:01:41.164 229 INFO rally.task.engine [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: Task validation check cloud.
+2017-03-02 09:01:41.175 229 INFO rally.plugins.openstack.context.keystone.users [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  Enter context: `users`
+2017-03-02 09:01:42.058 229 INFO rally.plugins.openstack.context.keystone.users [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: Enter context: `users`
+2017-03-02 09:01:43.694 229 INFO rally.plugins.openstack.context.keystone.users [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  Exit context: `users`
+2017-03-02 09:01:47.487 229 INFO rally.plugins.openstack.context.keystone.users [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: Exit context: `users`
+2017-03-02 09:01:47.487 229 INFO rally.task.engine [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: Task validation of semantic.
+2017-03-02 09:01:47.487 229 INFO rally.task.engine [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: Task validation.
+Task config is valid :)
+--------------------------------------------------------------------------------
+Task  3731ce80-5f41-4337-a7bd-664d549d53c0: started
+--------------------------------------------------------------------------------
+
+Benchmarking... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: 3731ce80-5f41-4337-a7bd-664d549d53c0
+2017-03-02 09:01:47.502 229 INFO rally.api [-] Benchmark Task 3731ce80-5f41-4337-a7bd-664d549d53c0 on Deployment f478cc47-6fd5-452d-aca7-7881883078af
+2017-03-02 09:01:47.508 229 INFO rally.task.engine [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  Benchmarking.
+2017-03-02 09:01:47.553 229 INFO rally.task.engine [-] Running benchmark with key: 
+{
+  "kw": {
+    "runner": {
+      "times": 100, 
+      "type": "constant", 
+      "concurrency": 5
+    }, 
+    "sla": {
+      "max_avg_duration": 3, 
+      "failure_rate": {
+        "max": 0
+      }, 
+      "max_seconds_per_iteration": 5
+    }, 
+    "context": {
+      "quotas": {
+        "nova": {
+          "security_groups": -1, 
+          "server_groups": -1, 
+          "metadata_items": -1, 
+          "security_group_rules": -1, 
+          "ram": -1, 
+          "floating_ips": -1, 
+          "injected_file_path_bytes": -1, 
+          "instances": -1, 
+          "key_pairs": -1, 
+          "injected_files": -1, 
+          "fixed_ips": -1, 
+          "cores": -1, 
+          "server_group_members": -1, 
+          "injected_file_content_bytes": -1
+        }, 
+        "cinder": {
+          "snapshots": -1, 
+          "volumes": -1, 
+          "gigabytes": -1
+        }, 
+        "neutron": {
+          "router": -1, 
+          "security_group_rule": -1, 
+          "network": -1, 
+          "port": -1, 
+          "floatingip": -1, 
+          "security_group": -1, 
+          "subnet": -1
+        }
+      }, 
+      "users": {
+        "users_per_tenant": 50, 
+        "tenants": 3
+      }
+    }
+  }, 
+  "name": "Authenticate.keystone", 
+  "pos": 0
+}
+2017-03-02 09:01:47.560 229 INFO rally.plugins.openstack.context.keystone.users [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  Enter context: `users`
+2017-03-02 09:01:49.949 229 INFO rally.plugins.openstack.context.keystone.users [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: Enter context: `users`
+2017-03-02 09:01:49.949 229 INFO rally.plugins.openstack.context.quotas.quotas [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  Enter context: `quotas`
+2017-03-02 09:01:52.497 229 INFO rally.plugins.openstack.context.quotas.quotas [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: Enter context: `quotas`
+2017-03-02 09:01:52.532 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 1 START
+2017-03-02 09:01:52.532 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 2 START
+2017-03-02 09:01:52.537 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 3 START
+2017-03-02 09:01:52.542 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 4 START
+2017-03-02 09:01:52.545 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 5 START
+2017-03-02 09:01:52.748 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 2 END: OK
+2017-03-02 09:01:52.750 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 1 END: OK
+2017-03-02 09:01:52.763 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 7 START
+2017-03-02 09:01:52.764 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 6 START
+2017-03-02 09:01:52.768 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 5 END: OK
+2017-03-02 09:01:52.770 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 4 END: OK
+2017-03-02 09:01:52.778 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 8 START
+2017-03-02 09:01:52.780 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 9 START
+2017-03-02 09:01:52.785 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 3 END: OK
+2017-03-02 09:01:52.795 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 10 START
+2017-03-02 09:01:52.953 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 6 END: OK
+2017-03-02 09:01:52.958 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 8 END: OK
+2017-03-02 09:01:52.967 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 11 START
+2017-03-02 09:01:52.968 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 12 START
+2017-03-02 09:01:52.976 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 9 END: OK
+2017-03-02 09:01:52.989 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 13 START
+2017-03-02 09:01:52.997 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 10 END: OK
+2017-03-02 09:01:53.005 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 14 START
+2017-03-02 09:01:53.018 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 7 END: OK
+2017-03-02 09:01:53.026 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 15 START
+2017-03-02 09:01:53.151 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 12 END: OK
+2017-03-02 09:01:53.156 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 11 END: OK
+2017-03-02 09:01:53.167 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 16 START
+2017-03-02 09:01:53.169 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 17 START
+2017-03-02 09:01:53.177 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 13 END: OK
+2017-03-02 09:01:53.193 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 18 START
+2017-03-02 09:01:53.202 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 14 END: OK
+2017-03-02 09:01:53.209 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 15 END: OK
+2017-03-02 09:01:53.215 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 19 START
+2017-03-02 09:01:53.224 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 20 START
+2017-03-02 09:01:53.364 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 17 END: OK
+2017-03-02 09:01:53.377 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 21 START
+2017-03-02 09:01:53.400 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 19 END: OK
+2017-03-02 09:01:53.400 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 16 END: OK
+2017-03-02 09:01:53.412 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 22 START
+2017-03-02 09:01:53.412 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 23 START
+2017-03-02 09:01:53.430 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 18 END: OK
+2017-03-02 09:01:53.444 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 24 START
+2017-03-02 09:01:53.451 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 20 END: OK
+2017-03-02 09:01:53.465 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 25 START
+2017-03-02 09:01:53.567 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 21 END: OK
+2017-03-02 09:01:53.577 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 26 START
+2017-03-02 09:01:53.597 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 22 END: OK
+2017-03-02 09:01:53.605 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 27 START
+2017-03-02 09:01:53.642 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 23 END: OK
+2017-03-02 09:01:53.655 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 28 START
+2017-03-02 09:01:53.658 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 24 END: OK
+2017-03-02 09:01:53.668 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 29 START
+2017-03-02 09:01:53.677 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 25 END: OK
+2017-03-02 09:01:53.690 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 30 START
+2017-03-02 09:01:53.758 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 26 END: OK
+2017-03-02 09:01:53.772 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 31 START
+2017-03-02 09:01:53.790 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 27 END: OK
+2017-03-02 09:01:53.800 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 32 START
+2017-03-02 09:01:53.844 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 28 END: OK
+2017-03-02 09:01:53.853 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 29 END: OK
+2017-03-02 09:01:53.855 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 33 START
+2017-03-02 09:01:53.865 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 34 START
+2017-03-02 09:01:53.879 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 30 END: OK
+2017-03-02 09:01:53.888 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 35 START
+2017-03-02 09:01:53.959 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 31 END: OK
+2017-03-02 09:01:53.970 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 36 START
+2017-03-02 09:01:53.983 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 32 END: OK
+2017-03-02 09:01:53.994 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 37 START
+2017-03-02 09:01:54.037 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 33 END: OK
+2017-03-02 09:01:54.049 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 38 START
+2017-03-02 09:01:54.050 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 34 END: OK
+2017-03-02 09:01:54.062 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 39 START
+2017-03-02 09:01:54.081 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 35 END: OK
+2017-03-02 09:01:54.092 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 40 START
+2017-03-02 09:01:54.162 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 36 END: OK
+2017-03-02 09:01:54.171 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 41 START
+2017-03-02 09:01:54.180 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 37 END: OK
+2017-03-02 09:01:54.194 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 42 START
+2017-03-02 09:01:54.258 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 39 END: OK
+2017-03-02 09:01:54.266 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 38 END: OK
+2017-03-02 09:01:54.273 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 43 START
+2017-03-02 09:01:54.282 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 44 START
+2017-03-02 09:01:54.291 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 40 END: OK
+2017-03-02 09:01:54.299 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 45 START
+2017-03-02 09:01:54.348 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 41 END: OK
+2017-03-02 09:01:54.363 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 46 START
+2017-03-02 09:01:54.375 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 42 END: OK
+2017-03-02 09:01:54.389 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 47 START
+2017-03-02 09:01:54.454 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 44 END: OK
+2017-03-02 09:01:54.468 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 48 START
+2017-03-02 09:01:54.490 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 43 END: OK
+2017-03-02 09:01:54.503 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 49 START
+2017-03-02 09:01:54.515 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 45 END: OK
+2017-03-02 09:01:54.526 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 50 START
+2017-03-02 09:01:54.565 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 46 END: OK
+2017-03-02 09:01:54.577 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 51 START
+2017-03-02 09:01:54.631 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 47 END: OK
+2017-03-02 09:01:54.643 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 52 START
+2017-03-02 09:01:54.684 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 48 END: OK
+2017-03-02 09:01:54.693 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 53 START
+2017-03-02 09:01:54.706 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 49 END: OK
+2017-03-02 09:01:54.709 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 50 END: OK
+2017-03-02 09:01:54.714 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 54 START
+2017-03-02 09:01:54.717 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 55 START
+2017-03-02 09:01:54.792 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 51 END: OK
+2017-03-02 09:01:54.801 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 56 START
+2017-03-02 09:01:54.819 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 52 END: OK
+2017-03-02 09:01:54.826 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 57 START
+2017-03-02 09:01:54.883 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 53 END: OK
+2017-03-02 09:01:54.896 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 58 START
+2017-03-02 09:01:54.901 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 55 END: OK
+2017-03-02 09:01:54.909 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 59 START
+2017-03-02 09:01:54.913 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 54 END: OK
+2017-03-02 09:01:54.925 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 60 START
+2017-03-02 09:01:55.044 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 57 END: OK
+2017-03-02 09:01:55.048 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 56 END: OK
+2017-03-02 09:01:55.054 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 61 START
+2017-03-02 09:01:55.062 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 62 START
+2017-03-02 09:01:55.112 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 58 END: OK
+2017-03-02 09:01:55.121 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 59 END: OK
+2017-03-02 09:01:55.126 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 60 END: OK
+2017-03-02 09:01:55.129 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 63 START
+2017-03-02 09:01:55.130 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 64 START
+2017-03-02 09:01:55.139 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 65 START
+2017-03-02 09:01:55.249 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 62 END: OK
+2017-03-02 09:01:55.253 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 61 END: OK
+2017-03-02 09:01:55.260 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 66 START
+2017-03-02 09:01:55.260 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 67 START
+2017-03-02 09:01:55.313 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 63 END: OK
+2017-03-02 09:01:55.322 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 64 END: OK
+2017-03-02 09:01:55.327 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 68 START
+2017-03-02 09:01:55.332 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 69 START
+2017-03-02 09:01:55.353 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 65 END: OK
+2017-03-02 09:01:55.366 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 70 START
+2017-03-02 09:01:55.446 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 66 END: OK
+2017-03-02 09:01:55.453 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 67 END: OK
+2017-03-02 09:01:55.460 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 71 START
+2017-03-02 09:01:55.466 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 72 START
+2017-03-02 09:01:55.533 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 69 END: OK
+2017-03-02 09:01:55.544 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 68 END: OK
+2017-03-02 09:01:55.548 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 73 START
+2017-03-02 09:01:55.555 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 74 START
+2017-03-02 09:01:55.567 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 70 END: OK
+2017-03-02 09:01:55.578 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 75 START
+2017-03-02 09:01:55.628 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 71 END: OK
+2017-03-02 09:01:55.641 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 76 START
+2017-03-02 09:01:55.656 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 72 END: OK
+2017-03-02 09:01:55.670 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 77 START
+2017-03-02 09:01:55.725 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 74 END: OK
+2017-03-02 09:01:55.736 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 73 END: OK
+2017-03-02 09:01:55.737 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 78 START
+2017-03-02 09:01:55.745 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 79 START
+2017-03-02 09:01:55.774 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 75 END: OK
+2017-03-02 09:01:55.791 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 80 START
+2017-03-02 09:01:55.844 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 76 END: OK
+2017-03-02 09:01:55.852 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 81 START
+2017-03-02 09:01:55.861 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 77 END: OK
+2017-03-02 09:01:55.870 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 82 START
+2017-03-02 09:01:55.932 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 79 END: OK
+2017-03-02 09:01:55.942 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 83 START
+2017-03-02 09:01:55.969 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 78 END: OK
+2017-03-02 09:01:55.978 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 84 START
+2017-03-02 09:01:55.982 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 80 END: OK
+2017-03-02 09:01:55.996 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 85 START
+2017-03-02 09:01:56.137 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 82 END: OK
+2017-03-02 09:01:56.151 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 81 END: OK
+2017-03-02 09:01:56.154 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 86 START
+2017-03-02 09:01:56.165 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 87 START
+2017-03-02 09:01:56.208 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 83 END: OK
+2017-03-02 09:01:56.218 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 88 START
+2017-03-02 09:01:56.253 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 84 END: OK
+2017-03-02 09:01:56.267 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 89 START
+2017-03-02 09:01:56.281 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 85 END: OK
+2017-03-02 09:01:56.294 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 90 START
+2017-03-02 09:01:56.342 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 86 END: OK
+2017-03-02 09:01:56.355 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 91 START
+2017-03-02 09:01:56.356 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 87 END: OK
+2017-03-02 09:01:56.366 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 92 START
+2017-03-02 09:01:56.400 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 88 END: OK
+2017-03-02 09:01:56.414 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 93 START
+2017-03-02 09:01:56.442 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 89 END: OK
+2017-03-02 09:01:56.452 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 94 START
+2017-03-02 09:01:56.474 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 90 END: OK
+2017-03-02 09:01:56.483 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 95 START
+2017-03-02 09:01:56.538 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 92 END: OK
+2017-03-02 09:01:56.541 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 91 END: OK
+2017-03-02 09:01:56.555 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 97 START
+2017-03-02 09:01:56.555 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 96 START
+2017-03-02 09:01:56.608 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 93 END: OK
+2017-03-02 09:01:56.620 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 98 START
+2017-03-02 09:01:56.632 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 94 END: OK
+2017-03-02 09:01:56.640 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 99 START
+2017-03-02 09:01:56.669 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 95 END: OK
+2017-03-02 09:01:56.682 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 100 START
+2017-03-02 09:01:56.747 359 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 96 END: OK
+2017-03-02 09:01:56.761 360 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 97 END: OK
+2017-03-02 09:01:56.830 358 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 98 END: OK
+2017-03-02 09:01:56.835 362 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 99 END: OK
+2017-03-02 09:01:56.910 361 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 100 END: OK
+2017-03-02 09:01:56.930 229 INFO rally.plugins.openstack.context.quotas.quotas [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  Exit context: `quotas`
+2017-03-02 09:01:58.390 229 INFO rally.plugins.openstack.context.quotas.quotas [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: Exit context: `quotas`
+2017-03-02 09:01:58.390 229 INFO rally.plugins.openstack.context.keystone.users [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  Exit context: `users`
+2017-03-02 09:02:06.109 229 INFO rally.plugins.openstack.context.keystone.users [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: Exit context: `users`
+2017-03-02 09:02:07.687 229 INFO rally.task.engine [-] Load duration is: 4.376205
+2017-03-02 09:02:07.688 229 INFO rally.task.engine [-] Full runner duration is: 4.424048
+2017-03-02 09:02:07.688 229 INFO rally.task.engine [-] Full duration is: 18.551541
+2017-03-02 09:02:07.763 229 INFO rally.task.engine [-] Running benchmark with key: 
+{
+  "kw": {
+    "runner": {
+      "type": "rps", 
+      "times": 1, 
+      "max_cpu_count": 1, 
+      "rps": 1
+    }, 
+    "args": {
+      "image": {
+        "name": "^cirros.*-disk$"
+      }, 
+      "flavor": {
+        "name": "m1.tiny"
+      }, 
+      "auto_assign_nic": true
+    }, 
+    "sla": {
+      "max_avg_duration": 45, 
+      "failure_rate": {
+        "max": 0
+      }, 
+      "max_seconds_per_iteration": 60
+    }, 
+    "context": {
+      "quotas": {
+        "nova": {
+          "security_groups": -1, 
+          "server_groups": -1, 
+          "metadata_items": -1, 
+          "security_group_rules": -1, 
+          "ram": -1, 
+          "floating_ips": -1, 
+          "injected_file_path_bytes": -1, 
+          "instances": -1, 
+          "key_pairs": -1, 
+          "injected_files": -1, 
+          "fixed_ips": -1, 
+          "cores": -1, 
+          "server_group_members": -1, 
+          "injected_file_content_bytes": -1
+        }, 
+        "cinder": {
+          "snapshots": -1, 
+          "volumes": -1, 
+          "gigabytes": -1
+        }, 
+        "neutron": {
+          "router": -1, 
+          "security_group_rule": -1, 
+          "network": -1, 
+          "port": -1, 
+          "floatingip": -1, 
+          "security_group": -1, 
+          "subnet": -1
+        }
+      }, 
+      "users": {
+        "users_per_tenant": 1, 
+        "tenants": 1
+      }, 
+      "network": {}
+    }
+  }, 
+  "name": "NovaServers.boot_and_associate_floating_ip", 
+  "pos": 0
+}
+2017-03-02 09:02:07.770 229 INFO rally.plugins.openstack.context.keystone.users [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  Enter context: `users`
+2017-03-02 09:02:08.692 229 INFO rally.plugins.openstack.context.keystone.users [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: Enter context: `users`
+2017-03-02 09:02:08.692 229 INFO rally.plugins.openstack.context.quotas.quotas [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  Enter context: `quotas`
+2017-03-02 09:02:09.976 229 INFO rally.plugins.openstack.context.quotas.quotas [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: Enter context: `quotas`
+2017-03-02 09:02:09.977 229 INFO rally.plugins.openstack.context.network.networks [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  Enter context: `network`
+2017-03-02 09:02:14.370 229 INFO rally.plugins.openstack.context.network.networks [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: Enter context: `network`
+2017-03-02 09:02:15.558 555 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 1 START
+2017-03-02 09:02:28.023 555 WARNING rally.common.logging [-] 'wait_for' is deprecated in Rally v0.1.2: Use wait_for_status instead.
+2017-03-02 09:02:28.024 555 WARNING rally.common.logging [-] 'wait_is_ready' is deprecated in Rally v0.1.2: Use wait_for_status instead.
+2017-03-02 09:02:28.598 555 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 1 END: OK
+2017-03-02 09:02:28.621 229 INFO rally.plugins.openstack.context.cleanup.user [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  user resources cleanup
+2017-03-02 09:02:36.645 229 INFO rally.plugins.openstack.context.cleanup.user [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: user resources cleanup
+2017-03-02 09:02:36.645 229 INFO rally.plugins.openstack.context.network.networks [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  Exit context: `network`
+2017-03-02 09:02:44.368 229 INFO rally.plugins.openstack.context.network.networks [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: Exit context: `network`
+2017-03-02 09:02:44.368 229 INFO rally.plugins.openstack.context.quotas.quotas [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  Exit context: `quotas`
+2017-03-02 09:02:44.877 229 INFO rally.plugins.openstack.context.quotas.quotas [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: Exit context: `quotas`
+2017-03-02 09:02:44.878 229 INFO rally.plugins.openstack.context.keystone.users [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  Exit context: `users`
+2017-03-02 09:02:48.334 229 INFO rally.plugins.openstack.context.keystone.users [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: Exit context: `users`
+2017-03-02 09:02:49.918 229 INFO rally.task.engine [-] Load duration is: 12.038277
+2017-03-02 09:02:49.918 229 INFO rally.task.engine [-] Full runner duration is: 13.081156
+2017-03-02 09:02:49.919 229 INFO rally.task.engine [-] Full duration is: 40.565794
+2017-03-02 09:02:49.978 229 INFO rally.task.engine [-] Running benchmark with key: 
+{
+  "kw": {
+    "runner": {
+      "times": 10, 
+      "type": "rps", 
+      "max_cpu_count": 1, 
+      "rps": 1
+    }, 
+    "args": {
+      "image": {
+        "name": "^cirros.*-disk$"
+      }, 
+      "min_sleep": 10, 
+      "max_sleep": 30, 
+      "flavor": {
+        "name": "m1.tiny"
+      }, 
+      "auto_assign_nic": true
+    }, 
+    "sla": {
+      "max_avg_duration": 30, 
+      "failure_rate": {
+        "max": 0
+      }, 
+      "max_seconds_per_iteration": 45
+    }, 
+    "context": {
+      "quotas": {
+        "nova": {
+          "security_groups": -1, 
+          "server_groups": -1, 
+          "metadata_items": -1, 
+          "security_group_rules": -1, 
+          "ram": -1, 
+          "floating_ips": -1, 
+          "injected_file_path_bytes": -1, 
+          "instances": -1, 
+          "key_pairs": -1, 
+          "injected_files": -1, 
+          "fixed_ips": -1, 
+          "cores": -1, 
+          "server_group_members": -1, 
+          "injected_file_content_bytes": -1
+        }, 
+        "cinder": {
+          "snapshots": -1, 
+          "volumes": -1, 
+          "gigabytes": -1
+        }, 
+        "neutron": {
+          "router": -1, 
+          "security_group_rule": -1, 
+          "network": -1, 
+          "port": -1, 
+          "floatingip": -1, 
+          "security_group": -1, 
+          "subnet": -1
+        }
+      }, 
+      "users": {
+        "users_per_tenant": 2, 
+        "tenants": 3
+      }, 
+      "network": {
+        "start_cidr": "10.2.0.0/24", 
+        "networks_per_tenant": 2
+      }
+    }
+  }, 
+  "name": "NovaServers.boot_and_delete_server", 
+  "pos": 0
+}
+2017-03-02 09:02:49.988 229 INFO rally.plugins.openstack.context.keystone.users [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  Enter context: `users`
+2017-03-02 09:02:51.031 229 INFO rally.plugins.openstack.context.keystone.users [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: Enter context: `users`
+2017-03-02 09:02:51.031 229 INFO rally.plugins.openstack.context.quotas.quotas [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  Enter context: `quotas`
+2017-03-02 09:02:53.499 229 INFO rally.plugins.openstack.context.quotas.quotas [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: Enter context: `quotas`
+2017-03-02 09:02:53.500 229 INFO rally.plugins.openstack.context.network.networks [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  Enter context: `network`
+2017-03-02 09:03:19.110 229 INFO rally.plugins.openstack.context.network.networks [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: Enter context: `network`
+2017-03-02 09:03:20.748 741 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 1 START
+2017-03-02 09:03:21.746 741 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 2 START
+2017-03-02 09:03:22.745 741 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 3 START
+2017-03-02 09:03:23.747 741 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 4 START
+2017-03-02 09:03:24.746 741 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 5 START
+2017-03-02 09:03:25.746 741 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 6 START
+2017-03-02 09:03:26.747 741 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 7 START
+2017-03-02 09:03:27.745 741 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 8 START
+2017-03-02 09:03:28.751 741 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 9 START
+2017-03-02 09:03:29.746 741 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 10 START
+2017-03-02 09:03:46.401 741 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 2 END: OK
+2017-03-02 09:03:50.415 741 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 1 END: OK
+2017-03-02 09:03:58.210 741 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 7 END: OK
+2017-03-02 09:04:00.660 741 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 9 END: OK
+2017-03-02 09:04:01.107 741 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 3 END: OK
+2017-03-02 09:04:02.811 741 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 5 END: OK
+2017-03-02 09:04:03.269 741 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 10 END: OK
+2017-03-02 09:04:06.860 741 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 4 END: OK
+2017-03-02 09:04:09.182 741 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 6 END: OK
+2017-03-02 09:04:10.061 741 INFO rally.task.runner [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | ITER: 8 END: OK
+2017-03-02 09:04:10.084 229 INFO rally.plugins.openstack.context.cleanup.user [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  user resources cleanup
+2017-03-02 09:04:16.732 229 INFO rally.plugins.openstack.context.cleanup.user [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: user resources cleanup
+2017-03-02 09:04:16.733 229 INFO rally.plugins.openstack.context.network.networks [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  Exit context: `network`
+2017-03-02 09:04:50.915 229 INFO rally.plugins.openstack.context.network.networks [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: Exit context: `network`
+2017-03-02 09:04:50.915 229 INFO rally.plugins.openstack.context.quotas.quotas [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  Exit context: `quotas`
+2017-03-02 09:04:51.751 229 INFO rally.plugins.openstack.context.quotas.quotas [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: Exit context: `quotas`
+2017-03-02 09:04:51.751 229 INFO rally.plugins.openstack.context.keystone.users [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Starting:  Exit context: `users`
+2017-03-02 09:04:58.256 229 INFO rally.plugins.openstack.context.keystone.users [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: Exit context: `users`
+2017-03-02 09:04:58.438 229 INFO rally.task.engine [-] Load duration is: 23.362118
+2017-03-02 09:04:58.438 229 INFO rally.task.engine [-] Full runner duration is: 49.354129
+2017-03-02 09:04:58.439 229 INFO rally.task.engine [-] Full duration is: 128.270281
+2017-03-02 09:04:58.512 229 INFO rally.task.engine [-] Task 3731ce80-5f41-4337-a7bd-664d549d53c0 | Completed: Benchmarking.
+
+--------------------------------------------------------------------------------
+Task 3731ce80-5f41-4337-a7bd-664d549d53c0: finished
+--------------------------------------------------------------------------------
+
+test scenario Authenticate.keystone
+args position 0
+args values:
+{
+  "runner": {
+    "times": 100, 
+    "type": "constant", 
+    "concurrency": 5
+  }, 
+  "hooks": [], 
+  "args": {}, 
+  "sla": {
+    "max_avg_duration": 3, 
+    "failure_rate": {
+      "max": 0
+    }, 
+    "max_seconds_per_iteration": 5
+  }, 
+  "context": {
+    "quotas": {
+      "nova": {
+        "security_groups": -1, 
+        "server_groups": -1, 
+        "metadata_items": -1, 
+        "security_group_rules": -1, 
+        "ram": -1, 
+        "floating_ips": -1, 
+        "injected_file_path_bytes": -1, 
+        "instances": -1, 
+        "key_pairs": -1, 
+        "injected_files": -1, 
+        "fixed_ips": -1, 
+        "cores": -1, 
+        "server_group_members": -1, 
+        "injected_file_content_bytes": -1
+      }, 
+      "cinder": {
+        "snapshots": -1, 
+        "volumes": -1, 
+        "gigabytes": -1
+      }, 
+      "neutron": {
+        "router": -1, 
+        "security_group_rule": -1, 
+        "network": -1, 
+        "port": -1, 
+        "floatingip": -1, 
+        "security_group": -1, 
+        "subnet": -1
+      }
+    }, 
+    "users": {
+      "users_per_tenant": 50, 
+      "tenants": 3
+    }
+  }
+}
+
+--------------------------------------------------------------------------------
+Task 3731ce80-5f41-4337-a7bd-664d549d53c0 has 0 error(s)
+--------------------------------------------------------------------------------
+
++--------------------------------------------------------------------------------------------------------------------------+
+|                                                   Response Times (sec)                                                   |
++-----------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action                | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++-----------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| authenticate.keystone | 0.168     | 0.194        | 0.233        | 0.255        | 0.298     | 0.202     | 100.0%  | 100   |
+| total                 | 0.168     | 0.194        | 0.233        | 0.255        | 0.298     | 0.202     | 100.0%  | 100   |
++-----------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 4.376205
+Full duration: 18.551541
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report 3731ce80-5f41-4337-a7bd-664d549d53c0 --out output.html
+
+* To generate a JUnit report, run:
+	rally task report 3731ce80-5f41-4337-a7bd-664d549d53c0 --junit --out output.xml
+
+* To get raw JSON output of task results, run:
+	rally task results 3731ce80-5f41-4337-a7bd-664d549d53c0
+
+--------------------------------------------------------------------------------
+
+test scenario NovaServers.boot_and_associate_floating_ip
+args position 0
+args values:
+{
+  "runner": {
+    "type": "rps", 
+    "times": 1, 
+    "max_cpu_count": 1, 
+    "rps": 1
+  }, 
+  "hooks": [], 
+  "args": {
+    "image": {
+      "name": "^cirros.*-disk$"
+    }, 
+    "flavor": {
+      "name": "m1.tiny"
+    }, 
+    "auto_assign_nic": true
+  }, 
+  "sla": {
+    "max_avg_duration": 45, 
+    "failure_rate": {
+      "max": 0
+    }, 
+    "max_seconds_per_iteration": 60
+  }, 
+  "context": {
+    "quotas": {
+      "nova": {
+        "security_groups": -1, 
+        "server_groups": -1, 
+        "metadata_items": -1, 
+        "security_group_rules": -1, 
+        "ram": -1, 
+        "floating_ips": -1, 
+        "injected_file_path_bytes": -1, 
+        "instances": -1, 
+        "key_pairs": -1, 
+        "injected_files": -1, 
+        "fixed_ips": -1, 
+        "cores": -1, 
+        "server_group_members": -1, 
+        "injected_file_content_bytes": -1
+      }, 
+      "cinder": {
+        "snapshots": -1, 
+        "volumes": -1, 
+        "gigabytes": -1
+      }, 
+      "neutron": {
+        "router": -1, 
+        "security_group_rule": -1, 
+        "network": -1, 
+        "port": -1, 
+        "floatingip": -1, 
+        "security_group": -1, 
+        "subnet": -1
+      }
+    }, 
+    "users": {
+      "users_per_tenant": 1, 
+      "tenants": 1
+    }, 
+    "network": {}
+  }
+}
+
+--------------------------------------------------------------------------------
+Task 3731ce80-5f41-4337-a7bd-664d549d53c0 has 0 error(s)
+--------------------------------------------------------------------------------
+
++-------------------------------------------------------------------------------------------------------------------------------+
+|                                                     Response Times (sec)                                                      |
++----------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action                     | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++----------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| nova.boot_server           | 9.822     | 9.822        | 9.822        | 9.822        | 9.822     | 9.822     | 100.0%  | 1     |
+| nova.associate_floating_ip | 2.811     | 2.811        | 2.811        | 2.811        | 2.811     | 2.811     | 100.0%  | 1     |
+| total                      | 12.038    | 12.038       | 12.038       | 12.038       | 12.038    | 12.038    | 100.0%  | 1     |
++----------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 12.038277
+Full duration: 40.565794
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report 3731ce80-5f41-4337-a7bd-664d549d53c0 --out output.html
+
+* To generate a JUnit report, run:
+	rally task report 3731ce80-5f41-4337-a7bd-664d549d53c0 --junit --out output.xml
+
+* To get raw JSON output of task results, run:
+	rally task results 3731ce80-5f41-4337-a7bd-664d549d53c0
+
+--------------------------------------------------------------------------------
+
+test scenario NovaServers.boot_and_delete_server
+args position 0
+args values:
+{
+  "runner": {
+    "times": 10, 
+    "type": "rps", 
+    "max_cpu_count": 1, 
+    "rps": 1
+  }, 
+  "hooks": [], 
+  "args": {
+    "image": {
+      "name": "^cirros.*-disk$"
+    }, 
+    "min_sleep": 10, 
+    "max_sleep": 30, 
+    "flavor": {
+      "name": "m1.tiny"
+    }, 
+    "auto_assign_nic": true
+  }, 
+  "sla": {
+    "max_avg_duration": 30, 
+    "failure_rate": {
+      "max": 0
+    }, 
+    "max_seconds_per_iteration": 45
+  }, 
+  "context": {
+    "quotas": {
+      "nova": {
+        "security_groups": -1, 
+        "server_groups": -1, 
+        "metadata_items": -1, 
+        "security_group_rules": -1, 
+        "ram": -1, 
+        "floating_ips": -1, 
+        "injected_file_path_bytes": -1, 
+        "instances": -1, 
+        "key_pairs": -1, 
+        "injected_files": -1, 
+        "fixed_ips": -1, 
+        "cores": -1, 
+        "server_group_members": -1, 
+        "injected_file_content_bytes": -1
+      }, 
+      "cinder": {
+        "snapshots": -1, 
+        "volumes": -1, 
+        "gigabytes": -1
+      }, 
+      "neutron": {
+        "router": -1, 
+        "security_group_rule": -1, 
+        "network": -1, 
+        "port": -1, 
+        "floatingip": -1, 
+        "security_group": -1, 
+        "subnet": -1
+      }
+    }, 
+    "users": {
+      "users_per_tenant": 2, 
+      "tenants": 3
+    }, 
+    "network": {
+      "start_cidr": "10.2.0.0/24", 
+      "networks_per_tenant": 2
+    }
+  }
+}
+
+--------------------------------------------------------------------------------
+Task 3731ce80-5f41-4337-a7bd-664d549d53c0 has 0 error(s)
+--------------------------------------------------------------------------------
+
++-----------------------------------------------------------------------------------------------------------------------+
+|                                                 Response Times (sec)                                                  |
++--------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action             | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++--------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| nova.boot_server   | 11.211    | 12.708       | 13.345       | 13.514       | 13.682    | 12.429    | 100.0%  | 10    |
+| nova.delete_server | 2.372     | 2.578        | 2.904        | 2.926        | 2.949     | 2.629     | 100.0%  | 10    |
+| total              | 12.929    | 14.328       | 14.968       | 15.294       | 15.619    | 14.09     | 100.0%  | 10    |
++--------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 23.362118
+Full duration: 128.270281
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report 3731ce80-5f41-4337-a7bd-664d549d53c0 --out output.html
+
+* To generate a JUnit report, run:
+	rally task report 3731ce80-5f41-4337-a7bd-664d549d53c0 --junit --out output.xml
+
+* To get raw JSON output of task results, run:
+	rally task results 3731ce80-5f41-4337-a7bd-664d549d53c0
+
++ rally task report --out /home/rally/out_release_ghpages/0.2.199/scenario_test.html
++ sudo cp -r /home/rally/out_release_ghpages /tmp/build/e55deab7
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 26092    0     0    0 26092      0  2026k --:--:-- --:--:-- --:--:-- 2123k
+succeeded

@@ -1,0 +1,15 @@
+{
+    "NovaServers.boot_and_associate_floating_ip": { "ci_params": { "functional_times": 80, "longrun_times": 100 }, "runner": { "type": "rps", "uplimit_time": 90 }, "sla": { "failure_rate": 0, "avg": 45.0, "max": 60.0 } , "args": { "auto_assign_nic": true }},
+
+    "NovaServers.boot_and_delete_server": { "ci_params": { "ignore_full_test": 1, "functional_times": 250, "longrun_times": 100 }, "runner": { "type": "rps" }, "sla": { "failure_rate": 0, "avg": 30.0, "max": 45.0 } }, 
+
+    "NovaServers.boot_and_get_console_output": { "ci_params": { "ignore_full_test": 1, "functional_times": 250, "longrun_times": 100 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 40.0, "max": 60.0 } }, 
+
+    "NovaServers.boot_and_list_server": { "ci_params": { "ignore_full_test": 1, "functional_times": 250, "longrun_times": 100 }, "runner": { "type": "rps" }, "sla": { "failure_rate": 0, "avg": 30.0, "max": 45.0 } },
+
+    "NovaServers.boot_and_migrate_server": { "ci_params": { "ignore_full_test": 1, "functional_times": 250, "longrun_times": 100 }, "runner": { "type": "rps" }, "sla": { "failure_rate": 0, "avg": 60.0, "max": 90.0 } },
+
+    "NovaServers.boot_and_rebuild_server": { "ci_params": { "ignore_full_test": 1, "functional_times": 250, "longrun_times": 100 }, "runner": { "type": "rps" }, "sla": { "failure_rate": 0, "avg": 60.0, "max": 90.0 } },
+
+    "NovaServers.boot_and_show_server": { "ci_params": { "ignore_full_test": 1, "functional_times": 250, "longrun_times": 100 }, "runner": { "type": "rps" }, "sla": { "failure_rate": 0, "avg": 30.0, "max": 45.0 } }
+}

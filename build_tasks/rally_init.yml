@@ -1,0 +1,22 @@
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: python
+    tag: "3.6"
+
+inputs:
+- name: git_osp
+- name: git_semver
+- name: rally_tests
+
+outputs:
+- name: out_rally_tests
+
+run:
+  path: sh
+  args:
+  - -exc
+  - |
+    bash git_osp/scripts/rally_init.sh

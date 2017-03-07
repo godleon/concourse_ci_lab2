@@ -1,0 +1,33 @@
+jobs:
+- name: push_docker_image
+  public: true
+  serial: true
+  plan:
+  - get: git_osp
+  - put: rhel7_test_suite_image
+    params:
+      build_args:
+        REDHAT_USER_NAME: {{REDHAT_USER_NAME}}
+        REDHAT_USER_PWD: {{REDHAT_USER_PWD}}
+        REDHAT_REG_POOLID: {{REDHAT_REG_POOLID}}
+        REDHAT_REPO_ENABLED: {{REDHAT_REPO_ENABLED}}
+
+      build: git_osp/docker_images/rhel7_test_suite
+
+resources:
+
+- name: git_osp
+  type: git
+  check_every: 30s
+  source:
+    uri: {{git-uri_osp}}
+    branch: master
+    private_key: {{git-private-key}}
+
+- name: rhel7_test_suite_image
+  type: docker-image
+  source:
+    email: {{DOCKER_HUB_EMAIL}}
+    username: {{DOCKER_HUB_USERNAME}}
+    password: {{DOCKER_HUB_PWD}}
+    repository: {{DOCKER_HUB_REPOSITORY}}

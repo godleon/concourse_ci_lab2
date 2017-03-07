@@ -1,0 +1,134 @@
+resource_types:
+
+- name: slack-notification
+  type: docker-image
+  source:
+    repository: cfcommunity/slack-notification-resource
+    tag: latest
+
+resources:
+
+- name: git_osp
+  type: git
+  check_every: 30s
+  source:
+    uri: {{git-uri_osp}}
+    branch: master
+    private_key: {{git-private-key}}
+
+- name: rally_tests
+  type: git
+  check_every: 30s
+  source:
+    uri: {{git-uri_test-result}}
+    branch: rally_test
+    private_key: {{git-private-key}}
+    
+- name: release_summary
+  type: git
+  check_every: 30s
+  source:
+    uri: {{git-uri_test-result}}
+    branch: master
+    private_key: {{git-private-key}}
+  
+- name: release_ghpages
+  type: git
+  check_every: 30s
+  source:
+    uri: {{git-uri_test-result}}
+    branch: gh-pages
+    private_key: {{git-private-key}}
+
+- name: git_semver
+  type: semver
+  source:
+    driver: git
+    initial_version: 0.0.1
+    uri: {{git-uri_test-result}}
+    branch: version
+    file: version
+    private_key: {{git-private-key}}
+
+- name: slack
+  type: slack-notification
+  source:
+    url: https://hooks.slack.com/services/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
+    
+
+
+jobs:
+
+- name: rally_init
+  plan:
+  - aggregate:
+    - get: git_osp
+      trigger: true
+    - get: rally_tests
+    - get: git_semver
+      params: {bump: patch}
+  - task: gen_tests
+    params:
+      CONF_NAME: {{CONF_NAME}}
+    file: git_osp/build_tasks/rally_init.yml
+    on_success:
+      put: slack
+      params:
+        channel: '#ci_message'
+        icon_emoji: ':robot_face:'
+        text: |
+          Rally is running now, you can check the progress from the following summary link:
+          https://github.com/godleon/osp_binary_test_result/tree/master/$(cat git_semver/version)
+  - put: rally_tests
+    params: {repository: out_rally_tests}
+  - put: git_semver
+    params: {file: git_semver/version} 
+
+- name: rally_discovery
+  plan:
+  - aggregate:
+    - get: git_osp
+    - get: git_semver
+      trigger: true
+      passed: [rally_init]
+    - get: rally_tests
+      trigger: true
+    - get: release_summary
+    - get: release_ghpages
+  - task: discovery
+    privileged: true
+    params:
+      REDHAT_USER_NAME: {{REDHAT_USER_NAME}}
+      REDHAT_USER_PWD: {{REDHAT_USER_PWD}}
+      REDHAT_REG_POOLID: {{REDHAT_REG_POOLID}}
+      REDHAT_REPO_ENABLED: {{REDHAT_REPO_ENABLED}}
+      OS_AUTH_URL: {{OS_AUTH_URL}}
+      OS_USERNAME: {{OS_USERNAME}}
+      OS_PASSWORD: {{OS_PASSWORD}}
+      OS_TENANT_NAME: {{OS_TENANT_NAME}}
+    file: git_osp/build_tasks/discovery.yml
+  #- put: release_summary
+  #  params: {repository: out_release_summary}
+  - put: release_ghpages
+    params: {repository: out_release_ghpages}
+  #- put: rally_tests
+  #  params: {repository: out_rally_tests}
+
+- name: sum_test_results
+  plan:
+  - aggregate:
+    - get: git_osp
+    - get: git_semver
+    - get: rally_tests
+    - get: release_summary
+    - get: release_ghpages
+      trigger: true
+      passed: [rally_discovery]
+  - task: Summary Rally Tests Result
+    privileged: true
+    file: git_osp/build_tasks/gen_test_summary.yml
+  - put: release_summary
+    params: {repository: out_release_summary}
+  - put: rally_tests
+    params: {repository: out_rally_tests}
+  

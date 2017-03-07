@@ -1,0 +1,25 @@
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: ubuntu
+    tag: xenial
+
+inputs:
+- name: git_osp
+- name: git_semver
+- name: rally_tests
+- name: release_ghpages
+- name: release_summary
+
+outputs:
+- name: out_rally_tests
+- name: out_release_summary
+
+run:
+  path: sh
+  args:
+  - -exc
+  - |
+    bash git_osp/scripts/gen_test_summary.sh $(pwd)/release_ghpages/$(cat git_semver/version)

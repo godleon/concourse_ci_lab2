@@ -1,0 +1,22 @@
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: registry.access.redhat.com/rhel7.3
+
+inputs:
+- name: git_osp
+- name: git_semver
+- name: rally_tests
+- name: release_ghpages
+
+outputs:
+- name: out_release_ghpages
+
+run:
+  path: sh
+  args:
+  - -exc
+  - |
+    bash git_osp/scripts/discovery.sh
