@@ -2,6 +2,8 @@ FROM registry.access.redhat.com/rhel7.3
 
 MAINTAINER godleon@gmail.com
 
+RUN "${REDHAT_USER_NAME}"
+
 #RUN subscription-manager register --username ${REDHAT_USER_NAME} --password ${REDHAT_USER_PWD}
 #RUN subscription-manager attach --pool=${REDHAT_REG_POOLID}
 #RUN subscription-manager repos --disable=*
@@ -16,4 +18,4 @@ MAINTAINER godleon@gmail.com
 #subscription-manager unregister
 #subscription-manager clean
 
-CMD ["echo","${REDHAT_USER_NAME}"]
+CMD ["echo","OK!"]
