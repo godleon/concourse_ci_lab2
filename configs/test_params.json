@@ -1,9 +1,4 @@
 {
-    "Authenticate.validate_glance": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } },
-
-    "Authenticate.validate_heat": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } },
-
-    "Authenticate.validate_neutron": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } },
 
     "Authenticate.validate_nova": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } },
 
