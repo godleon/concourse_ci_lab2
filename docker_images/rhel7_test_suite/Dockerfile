@@ -16,4 +16,4 @@ MAINTAINER godleon@gmail.com
 #subscription-manager unregister
 #subscription-manager clean
 
-RUN echo ${REDHAT_USER_NAME} ${REDHAT_USER_PWD}
+CMD ["echo","${REDHAT_USER_NAME}"]
