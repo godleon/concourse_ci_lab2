@@ -1,9 +1,4 @@
 {
-
-    "Authenticate.validate_nova": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } },
-
-
-
     "CinderVolumes.create_and_accept_transfer": { "ci_params": { "functional_times": 300, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 30.0, "max": 45.0 } },
 
     "CinderVolumes.create_and_delete_volume": { "ci_params": { "functional_times": 300, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 30.0, "max": 45.0 } },
