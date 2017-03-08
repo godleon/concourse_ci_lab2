@@ -75,8 +75,8 @@ function fn_do_rally_test() {
     
     #mkdir -p $4/${g_CATE_NAME}
     mkdir -p ${g_OUT_GHPAGES}/${g_CATE_NAME}
-    rally task report --out $4/${g_CATE_NAME}/${OUTPUT_FILENAME}.html
-    rally task results > $4/${g_CATE_NAME}/${OUTPUT_FILENAME}.json
+    rally task report --out ${g_OUT_GHPAGES}/${g_CATE_NAME}/${OUTPUT_FILENAME}.html
+    rally task results > ${g_OUT_GHPAGES}/${g_CATE_NAME}/${OUTPUT_FILENAME}.json
     #rally task report --out ${g_OUT_GHPAGES}/${g_CATE_NAME}/${OUTPUT_FILENAME}.html 2>/dev/null
     #rally task results > ${g_OUT_GHPAGES}/${g_CATE_NAME}/${OUTPUT_FILENAME}.json 2>/dev/null
 
