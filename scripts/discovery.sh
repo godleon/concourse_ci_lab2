@@ -58,8 +58,8 @@ function fn_do_rally_test() {
     # 產生目前的時間字串
     TIME_STR=$(date +%Y%m%d_%H%M%S)
     #TIME_STR_OUTPUT=$(date +%Y-%m-%d %H:%M:%S)
-    #rally task start --abort-on-sla-failure $1 > /dev/null 2>&1
-    rally task start --abort-on-sla-failure $1
+    rally task start --abort-on-sla-failure $1 > /dev/null 2>&1
+    #rally task start --abort-on-sla-failure $1
 
     # 輸出 rally 測試結果
     OUTPUT_FILENAME="(${TIME_STR})${g_TEST_NAME}-${g_RUNNER_TYPE}($2-${TEST_CONCURRENCY})"
@@ -75,10 +75,10 @@ function fn_do_rally_test() {
     
     #mkdir -p $4/${g_CATE_NAME}
     mkdir -p ${g_OUT_GHPAGES}/${g_CATE_NAME}
-    rally task report --out ${g_OUT_GHPAGES}/${g_CATE_NAME}/${OUTPUT_FILENAME}.html
-    rally task results > ${g_OUT_GHPAGES}/${g_CATE_NAME}/${OUTPUT_FILENAME}.json
-    #rally task report --out ${g_OUT_GHPAGES}/${g_CATE_NAME}/${OUTPUT_FILENAME}.html 2>/dev/null
-    #rally task results > ${g_OUT_GHPAGES}/${g_CATE_NAME}/${OUTPUT_FILENAME}.json 2>/dev/null
+    #rally task report --out ${g_OUT_GHPAGES}/${g_CATE_NAME}/${OUTPUT_FILENAME}.html
+    #rally task results > ${g_OUT_GHPAGES}/${g_CATE_NAME}/${OUTPUT_FILENAME}.json
+    rally task report --out ${g_OUT_GHPAGES}/${g_CATE_NAME}/${OUTPUT_FILENAME}.html 2>/dev/null
+    rally task results > ${g_OUT_GHPAGES}/${g_CATE_NAME}/${OUTPUT_FILENAME}.json 2>/dev/null
 
     cd /tempest >/dev/null 2>&1
     tempest cleanup >/dev/null 2>&1
