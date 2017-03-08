@@ -76,8 +76,8 @@ function fn_do_rally_test() {
     mkdir -p ${g_OUT_GHPAGES}/${g_CATE_NAME}
     #rally task report --out $4/${g_CATE_NAME}/${OUTPUT_FILENAME}.html
     #rally task results > $4/${g_CATE_NAME}/${OUTPUT_FILENAME}.json
-    rally task report --out ${g_OUT_GHPAGES}/${g_CATE_NAME}/${OUTPUT_FILENAME}.html
-    rally task results > ${g_OUT_GHPAGES}/${g_CATE_NAME}/${OUTPUT_FILENAME}.json
+    rally task report --out ${g_OUT_GHPAGES}/${g_CATE_NAME}/${OUTPUT_FILENAME}.html 2>/dev/null
+    rally task results > ${g_OUT_GHPAGES}/${g_CATE_NAME}/${OUTPUT_FILENAME}.json 2>/dev/null
 
     cd /tempest >/dev/null 2>&1
     tempest cleanup >/dev/null 2>&1
@@ -120,13 +120,13 @@ g_OUT_SUMMARY=${HOME}/out_release_summary/${g_RESOURCE_VER}
 g_OUT_GHPAGES=${HOME}/out_release_ghpages/${g_RESOURCE_VER}
 
 # 註冊 Red Hat CDN
-subscription-manager register --username ${REDHAT_USER_NAME} --password ${REDHAT_USER_PWD} >/dev/null
-subscription-manager attach --pool=${REDHAT_REG_POOLID} >/dev/null
-subscription-manager repos --disable=*  >/dev/null
-subscription-manager repos ${REDHAT_REPO_ENABLED}  >/dev/null
+# subscription-manager register --username ${REDHAT_USER_NAME} --password ${REDHAT_USER_PWD} >/dev/null
+# subscription-manager attach --pool=${REDHAT_REG_POOLID} >/dev/null
+# subscription-manager repos --disable=*  >/dev/null
+# subscription-manager repos ${REDHAT_REPO_ENABLED}  >/dev/null
 
 # 安裝軟體
-yum -y install git
+#yum -y install git
 REMAIN_TEST_COUNT=$(find rally_tests/ -type f -name '*.json' | wc -l)
 if [ ${REMAIN_TEST_COUNT} -eq 0 ]; then 
     #sudo git clone release_ghpages ${ENTRY_PATH}/out_release_ghpages
@@ -135,18 +135,18 @@ if [ ${REMAIN_TEST_COUNT} -eq 0 ]; then
 fi
 
 #yum -y install git jq bc wget openstack-tempest python-openstackclient redhat-lsb-core python27-python-pip gcc gmp-devel iputils libffi-devel libxml2-devel libxslt-devel postgresql-devel openssl-devel python-devel python27-python-devel redhat-rpm-config  >/dev/null
-yum -y install git jq bc wget openstack-tempest python-openstackclient openstack-rally
-subscription-manager remove --all
-subscription-manager unregister
-subscription-manager clean
+# yum -y install git jq bc wget openstack-tempest python-openstackclient openstack-rally
+# subscription-manager remove --all
+# subscription-manager unregister
+# subscription-manager clean
 
 #PATH=${PATH}:/opt/rh/python27/root/usr/bin
 
 # 設定 tempest
 mkdir /tempest
-cd /tempest
-ln -s /usr/share/openstack-tempest-13.0.0 /usr/share/openstack-tempest
-sh /usr/share/openstack-tempest/tools/configure-tempest-directory
+#cd /tempest
+#ln -s /usr/share/openstack-tempest-13.0.0 /usr/share/openstack-tempest
+#sh /usr/share/openstack-tempest/tools/configure-tempest-directory
 tools/config_tempest.py --debug --create identity.uri ${OS_AUTH_URL} identity.admin_username ${OS_USERNAME} identity.admin_password ${OS_PASSWORD} identity.admin_tenant_name ${OS_TENANT_NAME} object-storage.operator_role swiftoperator
 tempest cleanup --init-saved-state
 cd -
@@ -157,7 +157,7 @@ cd -
 #sudo apt-get -y install git jq bc >/dev/null
 
 # 環境變數設定
-source git_osp/overcloudrc
+#source git_osp/overcloudrc
 
 # 將所有目錄移到 /home/rally 下
 cd ${HOME}

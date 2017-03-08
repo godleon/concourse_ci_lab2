@@ -1,0 +1,25 @@
+FROM registry.access.redhat.com/rhel7.3
+
+MAINTAINER godleon@gmail.com
+
+RUN subscription-manager register --username ${REDHAT_USER_NAME} --password ${REDHAT_USER_PWD}
+RUN subscription-manager attach --pool=${REDHAT_REG_POOLID}
+RUN subscription-manager repos --disable=*
+RUN subscription-manager repos --enable=rhel-7-server-extras-rpms --enable=rhel-7-server-rpms --enable=rhel-7-server-extras-rpms --enable=rhel-7-server-rh-common-rpms --enable=rhel-ha-for-rhel-7-server-rpms --enable=rhel-7-server-openstack-10-rpms --enable=rhel-server-rhscl-7-eus-rpms
+
+# Install Softwares
+RUN yum -y update
+RUN yum -y install git jq bc wget openstack-tempest python-openstackclient openstack-rally
+
+RUN subscription-manager remove --all
+RUN subscription-manager unregister
+RUN subscription-manager clean
+
+# Configure OpenStack Tempest
+RUN mkdir /tempest
+WORKDIR /tempest
+RUN ln -s /usr/share/openstack-tempest-13.0.0 /usr/share/openstack-tempest
+RUN sh /usr/share/openstack-tempest/tools/configure-tempest-directory
+
+WORKDIR /
+CMD ["echo","OK!"]
