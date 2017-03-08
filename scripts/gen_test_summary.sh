@@ -20,7 +20,8 @@ CUR_SCEN_NAME=""
 for f in $(find $1/ -name '(*.html' | sort)
 do   
     args=("$f")
-    MAX_CONCURRENCY=$(grep -oP '\"load_profile\":.*, \"errors' ${args[@]} | grep -oP '\[\[.*\]\]' | grep -oP '\[\[[0-9].*[0-9]\]\]' | jq 'max_by(.[1])[1]')
+    #MAX_CONCURRENCY=$(grep -oP '\"load_profile\":.*, \"errors' ${args[@]} | grep -oP '\[\[.*\]\]' | grep -oP '\[\[[0-9].*[0-9]\]\]' | jq 'max_by(.[1])[1]')
+    MAX_CONCURRENCY=$(grep -oP '\"load_profile\":.*\[\[[0-9].*[0-9]\]\]' ${args[@]} | grep -oP '\[\[[0-9].*[0-9]\]\]' | jq 'max_by(.[1])[1]')
     echo "MAX_CONCURRENCY = ${MAX_CONCURRENCY}"
 
     FILE_NAME=${f##*/}
