@@ -57,7 +57,21 @@
 
     "KeystoneBasic.create_add_and_list_user_roles": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 6.0, "max": 9.0 } }, 
 
+    "KeystoneBasic.create_and_list_users": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 6.0, "max": 9.0 } },
+
     "KeystoneBasic.create_and_delete_role": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
+
+    "KeystoneBasic.add_and_remove_user_role": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 10.0, "max": 15.0 } },
+
+    "KeystoneBasic.create_delete_user": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 10.0, "max": 15.0 } },
+
+    "KeystoneBasic.create_user_update_password": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 10.0, "max": 15.0 } }, 
+
+    "KeystoneBasic.create_and_update_user": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 10.0, "max": 15.0 } },
+
+    "KeystoneBasic.create_update_and_delete_tenant": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 10.0, "max": 15.0 } },  
+
+    "KeystoneBasic.create_user_set_enabled_and_delete": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 10.0, "max": 15.0 } }, 
 
     "KeystoneBasic.create_tenant_with_users": { "ci_params": { "functional_times": 500, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 20.0, "max": 30.0 } }, 
 

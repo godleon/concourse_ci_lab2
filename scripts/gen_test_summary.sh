@@ -34,8 +34,7 @@ do
     fi
 
     # scenario name
-    SCEN_NAME=`echo ${FILE_NAME} | grep -oP '\).*(rps|constant)\('`
-    SCEN_NAME=`echo ${SCEN_NAME} | grep -oP '[a-zA-Z]*\.[a-zA-Z_]*'`
+    SCEN_NAME=`echo ${FILE_NAME} | grep -oP '\).*(rps|constant)\(' | grep -oP '[a-zA-Z]*\.[a-zA-Z_0-9]*'`
     if [ "${CUR_SCEN_NAME}" != "${SCEN_NAME}" ]; then
         echo "" >> ${g_OUTPUT_FILE}
         echo "### ${SCEN_NAME}" >> ${g_OUTPUT_FILE}

@@ -72,8 +72,8 @@ def generate_test(test_tmpl, paras):
     if "sla" in paras:
         dict_test["sla"] = {
             "failure_rate": {"max": paras["sla"]["failure_rate"]},
-            "max_avg_duration": paras["sla"]["avg"],
-            "max_seconds_per_iteration": paras["sla"]["max"]
+            "max_avg_duration": paras["sla"]["avg"]#,
+            #"max_seconds_per_iteration": paras["sla"]["max"]
         }
 
     # 設定 service quota 為 unlimited
