@@ -1,99 +1,31 @@
 {
-    "CinderVolumes.create_and_accept_transfer": { "ci_params": { "functional_times": 300, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 30.0, "max": 45.0 } },
+    "KeystoneBasic.create_and_list_users": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 6.0, "max": 9.0 } },
 
-    "CinderVolumes.create_and_delete_volume": { "ci_params": { "functional_times": 300, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 30.0, "max": 45.0 } },
+    "KeystoneBasic.add_and_remove_user_role": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 10.0, "max": 15.0 } },
 
-    "CinderVolumes.create_and_delete_snapshot": { "ci_params": { "functional_times": 300, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 30.0, "max": 45.0 } },
+    "KeystoneBasic.create_delete_user": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 10.0, "max": 15.0 } },
 
-    "CinderVolumeTypes.create_and_delete_volume_type": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } },
+    "KeystoneBasic.create_user_update_password": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 10.0, "max": 15.0 } }, 
 
-    "CinderVolumes.create_and_list_snapshots": { "ci_params": { "functional_times": 300, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 20.0, "max": 30.0 } },
+    "KeystoneBasic.create_and_update_user": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 10.0, "max": 15.0 } },
 
+    "KeystoneBasic.create_update_and_delete_tenant": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 10.0, "max": 15.0 } },  
 
-
-    "GlanceImages.create_and_delete_image": { "ci_params": { "functional_times": 300, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 20.0, "max": 30.0 } },
-
-    "GlanceImages.create_and_list_image": { "ci_params": { "functional_times": 300, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 20.0, "max": 30.0 } },
-
-    "GlanceImages.create_image_and_boot_instances": { "ci_params": { "functional_times": 300, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 20.0, "max": 30.0 } },
-
-    "GlanceImages.list_images": { "ci_params": { "functional_times": 300, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 20.0, "max": 30.0 } },
+    "KeystoneBasic.create_user_set_enabled_and_delete": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 10.0, "max": 15.0 } }, 
 
 
 
-    "KeystoneBasic.add_and_remove_user_role": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
+    "NovaServers.boot_and_associate_floating_ip": { "ci_params": { "functional_times": 100, "longrun_times": 100 }, "runner": { "type": "rps", "uplimit_time": 90 }, "sla": { "failure_rate": 0, "avg": 45.0, "max": 60.0 } , "args": { "auto_assign_nic": true }},
 
-    "KeystoneBasic.authenticate_user_and_validate_token": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
+    "NovaServers.boot_and_delete_server": { "ci_params": { "ignore_full_test": 1, "functional_times": 250, "longrun_times": 100 }, "runner": { "type": "rps" }, "sla": { "failure_rate": 0, "avg": 30.0, "max": 45.0 } }, 
 
-    "KeystoneBasic.create_add_and_list_user_roles": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 6.0, "max": 9.0 } }, 
+    "NovaServers.boot_and_get_console_output": { "ci_params": { "ignore_full_test": 1, "functional_times": 250, "longrun_times": 100 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 40.0, "max": 60.0 } }, 
 
-    "KeystoneBasic.create_and_delete_ec2credential": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
+    "NovaServers.boot_and_list_server": { "ci_params": { "ignore_full_test": 1, "functional_times": 250, "longrun_times": 100 }, "runner": { "type": "rps" }, "sla": { "failure_rate": 0, "avg": 30.0, "max": 45.0 } },
 
-    "KeystoneBasic.create_and_delete_role": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
+    "NovaServers.boot_and_migrate_server": { "ci_params": { "ignore_full_test": 1, "functional_times": 250, "longrun_times": 100 }, "runner": { "type": "rps" }, "sla": { "failure_rate": 0, "avg": 60.0, "max": 90.0 } },
 
-    "KeystoneBasic.create_and_delete_service": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } },  
+    "NovaServers.boot_and_rebuild_server": { "ci_params": { "ignore_full_test": 1, "functional_times": 250, "longrun_times": 100 }, "runner": { "type": "rps" }, "sla": { "failure_rate": 0, "avg": 60.0, "max": 90.0 } },
 
-    "KeystoneBasic.create_delete_user": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
-
-    "KeystoneBasic.create_and_get_role": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
-
-    "KeystoneBasic.create_and_list_ec2credentials": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
-
-    "KeystoneBasic.create_and_list_roles": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
-
-    "KeystoneBasic.create_and_list_services": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
-
-    "KeystoneBasic.create_and_list_tenants": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
-
-    "KeystoneBasic.create_and_list_users": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
-
-    "KeystoneBasic.create_and_update_user": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
-
-    "KeystoneBasic.create_tenant_with_users": { "ci_params": { "functional_times": 500, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 20.0, "max": 30.0 } }, 
-
-    "KeystoneBasic.create_tenant": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
-
-    "KeystoneBasic.create_update_and_delete_tenant": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
-
-    "KeystoneBasic.create_user_set_enabled_and_delete": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
-
-    "KeystoneBasic.create_user_update_password": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
-
-    "KeystoneBasic.get_entities": { "ci_params": { "functional_times": 500, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 20.0, "max": 30.0 } }, 
-
-
-
-    "NeutronNetworks.create_and_delete_floating_ips": { "ci_params": { "functional_times": 500, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 10.0, "max": 15.0 } }, 
-
-    "NeutronNetworks.create_and_delete_networks": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
-
-    "NeutronNetworks.create_and_delete_ports": { "ci_params": { "functional_times": 300, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 60.0, "max": 90.0 } }, 
-
-    "NeutronNetworks.create_and_delete_routers": { "ci_params": { "functional_times": 300, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 40.0, "max": 60.0 } }, 
-
-    "NeutronSecurityGroup.create_and_delete_security_groups": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
-
-    "NeutronNetworks.create_and_delete_subnets": { "ci_params": { "functional_times": 500, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 20.0, "max": 30.0 } }, 
-
-    "NeutronNetworks.create_and_show_network": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
-
-    "NeutronNetworks.create_and_update_networks": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
-
-    "NeutronSecurityGroup.create_and_update_security_groups": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
-
-    "NeutronNetworks.create_and_update_subnets": { "ci_params": { "functional_times": 500, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 20.0, "max": 30.0 } }, 
-
-    "NeutronNetworks.list_agents": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 1.5, "max": 3.0 } }, 
-
-
-
-    "SwiftObjects.create_container_and_object_then_delete_all ": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
-
-    "SwiftObjects.create_container_and_object_then_download_object ": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
-
-    "SwiftObjects.create_container_and_object_then_list_objects": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
-
-    "SwiftObjects.list_and_download_objects_in_containers": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
-
-    "SwiftObjects.list_objects_in_containers": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }
+    "NovaServers.boot_and_show_server": { "ci_params": { "ignore_full_test": 1, "functional_times": 250, "longrun_times": 100 }, "runner": { "type": "rps" }, "sla": { "failure_rate": 0, "avg": 30.0, "max": 45.0 } }
 }

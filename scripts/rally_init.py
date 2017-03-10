@@ -11,6 +11,10 @@ def generate_test(test_tmpl, paras):
     if len(tmpl_test[key]) == 2:
         dict_test = copy.deepcopy(test_tmpl[key][1])
 
+    # Exceptions in scenarios
+    if key == "GlanceImages.create_image_and_boot_instances":
+        dict_test["args"]["number_instances"] = 1
+
     if "args" in dict_test:
         # 僅測試一次
         if "repetitions" in dict_test["args"]:
