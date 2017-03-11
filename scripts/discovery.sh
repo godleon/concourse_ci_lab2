@@ -193,8 +193,8 @@ rally deployment check
 
 
 # 全域變數定義
-FAIL_RETRY_TIME=0   # 失敗重測次數
-MAX_RETRY_TIME=1    # 成功重測次數
+FAIL_RETRY_TIME=3   # 失敗重測次數
+MAX_RETRY_TIME=1   # 成功重測次數
 g_CUR_TEST=$(find rally_tests/ -type f -name '*.json' | sort | head -1)    # 目前測試的檔案路徑
 g_CATE_NAME=${g_CUR_TEST%/*}
 g_CATE_NAME=${g_CATE_NAME##*/}  # Service Name

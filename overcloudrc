@@ -1,6 +1,6 @@
 export OS_NO_CACHE=True
 export OS_CLOUDNAME=overcloud
-export OS_AUTH_URL=http://10.5.17.107:5000/v2.0
+export OS_AUTH_URL=http://10.5.17.109:5000/v2.0
 export NOVA_VERSION=1.1
 export COMPUTE_API_VERSION=1.1
 export OS_USERNAME=admin
