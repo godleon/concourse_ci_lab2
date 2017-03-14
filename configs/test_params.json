@@ -1,51 +1,24 @@
 {
-    
-
-    
-
-    "NovaSecGroup.boot_and_delete_server_with_secgroups": { "ci_params": { "ignore_full_test": 1, "functional_times": 300, "longrun_times": 100 }, "runner": { "type": "rps" }, "sla": { "failure_rate": 0, "avg": 30.0, "max": 45.0 }, "args": { "auto_assign_nic": true } },
-
-    
-
-    
-
-    
-
-    
 
     "NovaServers.boot_server_and_add_secgroups": { "ci_params": { "ignore_full_test": 1, "functional_times": 300, "longrun_times": 100 }, "runner": { "type": "rps" }, "sla": { "failure_rate": 0, "avg": 45.0, "max": 60.0 }, "args": { "auto_assign_nic": true } }, 
 
-    "NovaServers.boot_server_associate_and_dissociate_floating_ip": { "ci_params": { "ignore_full_test": 1, "functional_times": 100, "longrun_times": 100 }, "runner": { "type": "rps" }, "sla": { "failure_rate": 0, "avg": 45.0, "max": 60.0 } },
+    "NovaServers.boot_server_associate_and_dissociate_floating_ip": { "ci_params": { "ignore_full_test": 1, "functional_times": 100, "longrun_times": 100 }, "runner": { "type": "rps" }, "sla": { "failure_rate": 0, "avg": 45.0, "max": 60.0 }, "args": { "auto_assign_nic": true } },
 
-    "NovaServers.pause_and_unpause_server": { "ci_params": { "ignore_full_test": 1, "functional_times": 300, "longrun_times": 100 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 45.0, "max": 60.0 }, "args": { "auto_assign_nic": true } },
-
-    
-
-    "NovaServers.boot_and_list_server": { "ci_params": { "ignore_full_test": 1, "functional_times": 300, "longrun_times": 100 }, "runner": { "type": "rps" }, "sla": { "failure_rate": 0, "avg": 60.0, "max": 45.0 } },
-
-    "NovaServers.boot_and_show_server": { "ci_params": { "ignore_full_test": 1, "functional_times": 300, "longrun_times": 100 }, "runner": { "type": "rps" }, "sla": { "failure_rate": 0, "avg": 60.0, "max": 45.0 } },
+    "NovaServers.pause_and_unpause_server": { "ci_params": { "ignore_full_test": 1, "functional_times": 300, "longrun_times": 100 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 45.0, "max": 60.0 } },
 
     
-
-    
-
-    
-
     "NovaServers.suspend_and_resume_server": { "ci_params": { "ignore_full_test": 1, "functional_times": 300, "longrun_times": 100 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 60.0, "max": 90.0 } },
 
-    
-
-    
-
-    
-
-    
 
     "NovaServers.boot_server_attach_created_volume_and_live_migrate": { "ci_params": { "ignore_full_test": 1, "functional_times": 300, "longrun_times": 100 }, "runner": { "type": "rps" }, "sla": { "failure_rate": 0, "avg": 180.0, "max": 270.0 } },
 
     "NovaServers.boot_server_attach_created_volume_and_resize": { "ci_params": { "ignore_full_test": 1, "functional_times": 300, "longrun_times": 100 }, "runner": { "type": "rps" }, "sla": { "failure_rate": 0, "avg": 180.0, "max": 270.0 } },
 
     "NovaServers.snapshot_server": { "ci_params": { "ignore_full_test": 1, "functional_times": 300, "longrun_times": 100 }, "runner": { "type": "rps" }, "sla": { "failure_rate": 0, "avg": 300.0, "max": 270.0 } },
+
+
+
+
 
     "NovaAggregates.create_aggregate_add_and_remove_host": { "ci_params": { "ignore_full_test": 1, "functional_times": 1000, "longrun_times": 100 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } },
 
