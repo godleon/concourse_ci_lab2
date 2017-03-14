@@ -75,7 +75,8 @@ jobs:
       put: slack
       params:
         channel: '#ci_message'
-        icon_emoji: ':robot_face:'
+        #icon_emoji: ':robot_face:'
+        icon_url: http://cl.ly/image/3e1h0H3H2s0P/concourse-logo.png
         text: |
           Rally is running now, you can check the progress from the following summary link:
           https://github.com/godleon/osp_binary_test_result/tree/master/$(cat git_semver/version)
@@ -107,6 +108,14 @@ jobs:
       OS_PASSWORD: {{OS_PASSWORD}}
       OS_TENANT_NAME: {{OS_TENANT_NAME}}
     file: git_osp/build_tasks/discovery.yml
+    on_failure:
+      put: slack
+      params:
+        channel: '#ci_message'
+        icon_emoji: ':robot_face:'
+        text: |
+          Rally test($(cat git_semver/version)) has failed, please check it out at:
+          http://10.5.91.100:8080/builds/$BUILD_ID
   #- put: release_summary
   #  params: {repository: out_release_summary}
   - put: release_ghpages

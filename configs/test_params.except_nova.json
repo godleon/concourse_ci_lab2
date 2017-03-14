@@ -54,12 +54,12 @@
     "KeystoneBasic.create_and_list_tenants": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
 
     "KeystoneBasic.create_tenant": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
+	
+	"KeystoneBasic.create_and_delete_role": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } },
 
     "KeystoneBasic.create_add_and_list_user_roles": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 6.0, "max": 9.0 } }, 
 
     "KeystoneBasic.create_and_list_users": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 6.0, "max": 9.0 } },
-
-    "KeystoneBasic.create_and_delete_role": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
 
     "KeystoneBasic.add_and_remove_user_role": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 10.0, "max": 15.0 } },
 
@@ -104,9 +104,9 @@
 
 
 
-    "SwiftObjects.create_container_and_object_then_delete_all ": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
+    "SwiftObjects.create_container_and_object_then_delete_all": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
 
-    "SwiftObjects.create_container_and_object_then_download_object ": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
+    "SwiftObjects.create_container_and_object_then_download_object": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
 
     "SwiftObjects.create_container_and_object_then_list_objects": { "ci_params": { "functional_times": 1000, "longrun_times": 10000 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 } }, 
 

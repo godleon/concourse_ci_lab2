@@ -1,0 +1,3 @@
+{
+    "NovaServers.boot_server_from_volume_snapshot": { "ci_params": { "ignore_full_test": 1, "functional_times": 300, "longrun_times": 100 }, "runner": { "type": "rps" }, "sla": { "failure_rate": 0, "avg": 180.0, "max": 270.0 } }
+}
