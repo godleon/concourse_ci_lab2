@@ -1,3 +1,7 @@
 {
-    "NovaServers.boot_server_from_volume_snapshot": { "ci_params": { "ignore_full_test": 1, "functional_times": 300, "longrun_times": 100 }, "runner": { "type": "rps" }, "sla": { "failure_rate": 0, "avg": 180.0, "max": 270.0 } }
+    "NovaServers.boot_server_from_volume_snapshot": { "ci_params": { "ignore_full_test": 1, "functional_times": 300, "longrun_times": 100 }, "runner": { "type": "rps" }, "sla": { "failure_rate": 0, "avg": 180.0, "max": 270.0 } }, 
+
+    "NovaServers.snapshot_server": { "ci_params": { "ignore_full_test": 1, "functional_times": 300, "longrun_times": 100 }, "runner": { "type": "rps" }, "sla": { "failure_rate": 0, "avg": 300.0, "max": 270.0 } },
+
+    "NovaSecGroup.create_and_update_secgroups": { "ci_params": { "ignore_full_test": 1, "functional_times": 1000, "longrun_times": 100 }, "runner": { "type": "constant" }, "sla": { "failure_rate": 0, "avg": 3.0, "max": 5.0 }, "args": { "auto_assign_nic": true } }
 }
