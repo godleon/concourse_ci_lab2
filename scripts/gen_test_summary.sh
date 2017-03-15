@@ -58,7 +58,7 @@ do
 
     #echo "CATE=${CATE_NAME}, DATE=${DATE}, TIME=${TIME}, SCENARIO=${SCEN_NAME}, RUN_TYPE=${RUN_TYPE}"
     echo "" >> ${g_OUTPUT_FILE}
-    echo "- [${DATE} ${TIME} ${CUR_SCEN_NAME} ${RUN_TYPE}](https://godleon.github.io/osp_binary_test_result/${g_RESOURCE_VER}/${CATE_NAME}/${FILE_NAME}) \`${MAX_CONCURRENCY/.*}\` <img src=\"${ICON_URL}\" width=\"16\" height=\"16\" \/>" >> ${g_OUTPUT_FILE}
+    echo "- [${DATE} ${TIME} ${CUR_SCEN_NAME} ${RUN_TYPE}](https://godleon.github.io/osp_binary_test_result/${g_RESOURCE_VER}/${CATE_NAME}/${FILE_NAME}) \`${MAX_CONCURRENCY/.*}\` <img src=\"${ICON_URL}\" width=\"16\" height=\"16\" />" >> ${g_OUTPUT_FILE}
 done
 
 cd release_summary/
